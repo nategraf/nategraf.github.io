@@ -37,15 +37,16 @@
 
 <body>
     <!-- ******HEADER****** --> 
-    <header class="header">
-        <div class="container slbgimg">                       
-            <img class="profile-image img-responsive pull-left" src="assets/images/profile.png" alt="James Lee" />
+    <header class="header slbgimg">
+        <div class="container">
+            <!-- <img class="header-bg-image pull-right" src="assets/images/slcropped.png" /> -->                    
+            <img class="profile-image img-responsive pull-left" src="assets/images/profile.png" alt="Victor Graf" />
             <div class="profile-content pull-left">
                 <h1 class="name">Victor "Nate" Graf</h1>
                 <h2 class="desc">Computer Engineering Student</h2>   
                 <ul class="social list-inline">
                     <li><a href="https://www.linkedin.com/in/grafvictor"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="https://github.com/nategraf"><i class="fa fa-github-alt"></i></a></li>                  
+                    <li><a href="https://github.com/nategraf"><i class="fa fa-github-alt"></i></a></li> 
                 </ul> 
             </div><!--//profile-->
             <a class="btn btn-cta-primary pull-right" href="mailto:nategraf1@gmail.com" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>              
@@ -73,11 +74,11 @@
                         <div class="content">    
                                                
                             <div class="item featured text-center">
-                                <h3 class="title"><a href="#" target="_blank">Checkers for One</a></h3>
+                                <h2 class="title"><a href="#" target="_blank">Checkers for One</a></h2>
                                 <p class="summary">Computerized checkers board</p>
                                 <div class="featured-image">
                                     <a href="#" target="_blank">
-                                    <img class="img-responsive project-image" src="/assets/images/projects/checkers-for-one-featured.jpg" alt="Checkers for One" />
+                                    <img class="img-responsive project-image" src="assets/images/projects/checkers-for-one-featured.jpg" alt="Checkers for One" />
                                     </a>
                                     <!-- <div class="ribbon">
                                         <div class="text">New</div>
@@ -85,10 +86,11 @@
                                     </div> -->
                                     
                                 <div class="desc text-left">                                    
-                                    <p>You can promote your main project here. Suspendisse in tellus dolor. Vivamus a tortor eu turpis pharetra consequat quis non metus. Aliquam aliquam, orci eu suscipit pellentesque, mauris dui tincidunt enim, eget iaculis ante dolor non turpis.</p>
-                                    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. At vero eos et accusamus et iusto odio dignissimos ducimus.</p>
+                                    <p>For board game lovers, playing checkers on the computer lacks a certain essence to it. Because of this my teamates Di, Allison, and I decided to take features from computer checkers and brought them to a physical board. Given the two month window we had we decided to target two features in particular, move validation and an antificially intellegent opponnent</p>
+                                    <p>To display information to the user we decided to put a multicolor LED under each square using LED light strips, and to detect the pressense of the pieces using magnetic reed switches with a software backing to translate this information into a game state. I custom designed and built the enclosure, modeling it in Autodesk Inventor and manufacturing it using a CNC programed Shopbot mill. Inside the box includes two plates. The upper plate hold the led strips and is visible through the clear top. The lower play rests about 0.8" below the first and holds the delicate reed switches snugly in place at the correct depth the detect accuratly. These sensors and lights then pass through two multiplexing boards which I built and into a Rasberry PI 3.0 on which resides the hardware driver, game logic, and artificial intellengence. The AI and possible move calculations are made possible by <a href="https://github.com/harrisonzhao/checkers-ai-cpp">Harrison Zhao's Checkers C++</a>, while the drivers were written by Di and game logic by Allison.</p>
                                 </div><!--//desc-->         
-                                <a class="btn btn-cta-secondary" href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-for-products-velocity/" target="_blank"><i class="fa fa-thumbs-o-up"></i> Back my project</a>                 
+                                <a class="btn btn-cta-secondary" href="#" target="_blank"><i class="fa fa-link"></i> Find out more</a>
+                                <a class="btn btn-danger" href="https://www.youtube.com/watch?v=i9xfftpLQUk&feature=youtu.be" target="_blank"><i class="fa fa-youtube-play"></i> Watch a demo</a>                 
                             </div><!--//item-->
                             <hr class="divider" />
                             <div class="item row">
@@ -98,7 +100,7 @@
                                 <div class="desc col-md-8 col-sm-8 col-xs-12">
                                     <h3 class="title"><a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-mobile-apps-atom/" target="_blank">Atom - Designed for Mobile Apps</a></h3>
                                     <p>You can put one of your secondary projects here. Suspendisse in tellus dolor. Vivamus a tortor eu turpis pharetra consequat quis non metus. Aliquam aliquam, orci eu suscipit pellentesque, mauris dui tincidunt enim, eget iaculis ante dolor non turpis.</p>
-                                    <p><a class="more-link" href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-mobile-apps-atom/" target="_blank"><i class="fa fa-external-link"></i> Find out more</a></p>
+                                    <p><a class="more-link" href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-mobile-apps-atom/" target="_blank"><i class="fa fa-link"></i> Find out more</a></p>
                                 </div><!--//desc-->                          
                             </div><!--//item-->
                             
