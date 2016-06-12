@@ -504,6 +504,11 @@ a.dotted-link:hover {
 .credits .btn {
   margin-bottom: 15px;
 }
+
+.books .author {
+   font-style: italic;
+   font-size: 10pt;
+}
 /* ======= Footer ======= */
 .footer {
   background: #32383e;

@@ -19,6 +19,13 @@ jQuery(document).ready(function($) {
 
         /* Boid background */
         boid_init();
+
+        /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
+        GitHubCalendar("#github-graph", "nategraf", {"global_stats": false});
+        
+        
+        /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
+        GitHubActivity.feed({ username: "nategraf", selector: "#gh-feed" });
     });
     
     /* Bootstrap Tooltip for Skillset */
@@ -57,11 +64,4 @@ jQuery(document).ready(function($) {
         
         }
     );
-    
-    /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
-    GitHubCalendar("#github-graph", "nategraf");
-    
-    
-    /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-    GitHubActivity.feed({ username: "nategraf", selector: "#gh-feed" });
 });
