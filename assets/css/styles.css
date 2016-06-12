@@ -17,6 +17,12 @@
   /*height: 600px;*/
 }
 
+.boid-credits {
+  font-size: 10pt;
+  text-align: right;
+  margin-right: 10px; 
+}
+
 /* ======= Base ======= */
 body {
   font-family: 'Lato', arial, sans-serif;
