@@ -36,7 +36,10 @@
 </head> 
 
 <body>
-    <!-- ******HEADER****** --> 
+    <!-- BOID JS BACKGROUND -->
+    <canvas id="boids" class="canvas-background" width="600" height="450"></canvas>
+
+    <!-- ******HEADER****** -->
     <header class="header slbgimg">
         <div class="container">
             <!-- <img class="header-bg-image pull-right" src="assets/images/slcropped.png" /> -->                    
@@ -110,9 +113,9 @@
                                     <img class="img-responsive project-image" src="assets/images/projects/parambulator.png" alt="project name" />
                                 </a>
                                 <div class="desc col-md-8 col-sm-8 col-xs-12">
-                                    <h3 class="title"><a href="Parambulator/" target="_blank">Parambulator</a></h3>
+                                    <h3 class="title"><a href="parambulator/" target="_blank">Parambulator</a></h3>
                                     <p>Based on the orbital guidance tool from Seven Eves of the same name, the Parambulator is a simulation of a spacecraft, called Izzy, in orbit allowing the player to navigate through an asteroid field around earth. Following in toe are a number of small spacecraft called Arklets which follow a form of flocking behavior, with modification to facilitate orbital dynamics, while avoiding the asteroid, Izzy, and being sucked into Earth's gravity.</p>
-                                    <p><a class="more-link" href="Parambulator/" target="_blank"><i class="fa fa-link"></i> Find out more</a></p>
+                                    <p><a class="more-link" href="parambulator/" target="_blank"><i class="fa fa-link"></i> Find out more</a></p>
                                 </div><!--//desc-->                          
                             </div><!--//item-->
                             
@@ -443,6 +446,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
     <script type="text/javascript" src="assets/plugins/github-activity/github-activity-0.1.4.min.js"></script>
     <!-- custom js -->
+    <script type="text/javascript" src="assets/js/boid.js"></script>  
     <script type="text/javascript" src="assets/js/main.js"></script>            
 </body>
 </html> 

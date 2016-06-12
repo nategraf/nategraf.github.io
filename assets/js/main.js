@@ -17,6 +17,8 @@ jQuery(document).ready(function($) {
             
         });
 
+        /* Boid background */
+        boid_init();
     });
     
     /* Bootstrap Tooltip for Skillset */
@@ -62,6 +64,4 @@ jQuery(document).ready(function($) {
     
     /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
     GitHubActivity.feed({ username: "nategraf", selector: "#gh-feed" });
-
-
 });
