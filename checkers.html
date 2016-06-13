@@ -107,6 +107,58 @@
                 </div>
             </section>
 
+            <section class="tech-challenges section">
+                <div class="section-inner">
+                    <h2 class="heading">Technical Challenges</h2>
+                    <div class="content">
+                        <p>(1) Software:</p>
+                        <ul>
+                            <li>Tried to indicate when players made illegal moves, but the program isn't able to catch every error that a user might throw at it.</li>
+                            <li>Because we used another's code as the backbones of the project, we had to make sure we knew how every one of their functions worked so that we could integrate our magnet sensing and led indicationg program.</li>
+                            <li>The detection of if a piece can jump one piece vs jump more than one piece challenging.</li>
+                        </ul>
+                        <p>(2) Driver:</p>
+                        <ul>
+                            <li>The challenges are implementing the I2C and SPI protocol for the communication between hardware and software. In this part, you should be careful about the allocating the memory address and the byte of data sending to the device. Also, for the LED light part I need to convert all the unsigned byte to integer for the software to control the LED. In addition, it is also difficult to manipulate the receiving and sending bytes from SPI protocol. For the multiplexer part, I need to allocate the address precisely and calculate the expanding port based on the base address.  </li>
+                        </ul>
+                        <p>(3) Hardware:</p>
+                        <ul>
+                            <li>Designing the box to be manufacturable from cost effective materials proved to be challenging with the final solution being to make it out of 0.5" aspen plywood</li>
+                            <li>Multiple modifications needed to be made to the box by hand after it was manufactured. These modifications were to fit the HDMI cable and two switches. I had to use a drill and files to carefully make the holes look clean</li>
+                            <li>The magnetic reed switches are very fragile and we ended up braking multiple of them. We made sure to order extra and handle them carefully.</li>
+                            <li>We ended up buying the wrong kind of multiplexers at first, and had to order a new set</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="build section">
+                <div class="section-inner">
+                    <h2 class="heading">System Design</h2>
+                    <div class="content">
+                        <h3>Hardware</h3>
+                        <h4>Enclosure</h4>
+                        <p>The box was all cut out of 0.5" Aspen plywood using the CNC Shopbot Mill in the Engineering Innovation Center. Nate create the CAD models for each part, which are displayed below</p>
+                        <img class="img-responsive" src="assets/images/checkers/assembled_box.png" alt="Assembled Box"></img>
+                        
+                        <h4>LED Strips</h4>
+                        <p>The internal circuitry for the LED strips is depicted below.</p>
+                        <img class="img-responsive" src="assets/images/checkers/inner.png" alt="Inner LED Circuit"></img>
+
+                        <h4>Multiplexers</h4>
+                        <p>We use 8 multiplexers as I/O expender to read the status of reading switch by communicating through I2C protocol. Each MUX has 8 I/O pins which is used to read data. There are 3 address pins A0,A1,A2, which allow use to use at most 8 devices connected to the micocomputer. SDA and SCL are two pins used for I2C protoicol communication for operating every multiplexers.</p>
+                        <div class="row">
+                            <img class="col-md-6 col-sm-6 col-xs-12 img-responsive" src="assets/images/checkers/mux.png" alt="Mux Circuit View 1"></img>
+                            <img class="col-md-6 col-sm-6 col-xs-12 img-responsive" src="assets/images/checkers/mux2.png" alt="Mux Circuit View 2"></img>
+                        </div>
+
+                        <h4>Top Level Schematic</h4>
+                        <img class="img-responsive" src="assets/images/checkers/checkers_schematic.png" alt="Top Level Schematic"></img>
+
+                    </div>
+                </div>
+            </section>
+
         </div>
     </div>
 </body>
