@@ -132,29 +132,84 @@
                 </div>
             </section>
 
-            <section class="build section">
+            <section class="hardware section">
                 <div class="section-inner">
-                    <h2 class="heading">System Design</h2>
+                    <h2 class="heading">Hardware Design</h2>
                     <div class="content">
-                        <h3>Hardware</h3>
-                        <h4>Enclosure</h4>
+                        <h3>Enclosure</h3>
                         <p>The box was all cut out of 0.5" Aspen plywood using the CNC Shopbot Mill in the Engineering Innovation Center. Nate create the CAD models for each part, which are displayed below</p>
                         <img class="img-responsive" src="assets/images/checkers/assembled_box.png" alt="Assembled Box"></img>
                         
-                        <h4>LED Strips</h4>
+                        <h3>LED Strips</h3>
                         <p>The internal circuitry for the LED strips is depicted below.</p>
                         <img class="img-responsive" src="assets/images/checkers/inner.png" alt="Inner LED Circuit"></img>
 
-                        <h4>Multiplexers</h4>
+                        <h3>Multiplexers</h3>
                         <p>We use 8 multiplexers as I/O expender to read the status of reading switch by communicating through I2C protocol. Each MUX has 8 I/O pins which is used to read data. There are 3 address pins A0,A1,A2, which allow use to use at most 8 devices connected to the micocomputer. SDA and SCL are two pins used for I2C protoicol communication for operating every multiplexers.</p>
                         <div class="row">
                             <img class="col-md-6 col-sm-6 col-xs-12 img-responsive" src="assets/images/checkers/mux.png" alt="Mux Circuit View 1"></img>
                             <img class="col-md-6 col-sm-6 col-xs-12 img-responsive" src="assets/images/checkers/mux2.png" alt="Mux Circuit View 2"></img>
                         </div>
 
-                        <h4>Top Level Schematic</h4>
+                        <h3>Top Level Schematic</h3>
                         <img class="img-responsive" src="assets/images/checkers/checkers_schematic.png" alt="Top Level Schematic"></img>
+                    </div>
+                </div>
+            </section>
 
+            <section class="software section">
+                <div class="section-inner">
+                    <h2 class="heading">Software Design</h2>
+                    <div class="content">
+                        <h3>I2C Interface Programing</h3>
+                        <p>Setting up</p>
+                        <ol>
+                            <li>Send a start sequence:</li>
+                            <li>Send the I2C address of the slave with the R/W bit low (even address)</li>
+                            <li>Send the internal register number you want to write to</li>
+                            <li>Send the data byte</li>
+                            <li>[Optionally, send any further data bytes]</li>
+                            <li>Send the stop sequence.</li>
+                        </ol>
+                        <p>Reading from a device:</p>
+                        <ol>
+                            <li>Send a start sequence</li>
+                            <li>Send 0xE0 ( I2C address of the SRF08 with the R/W bit low (even address)</li>
+                            <li>Send 0x00 (Internal address of the command register)</li>
+                            <li>Send 0x51 (The command to start the SRF08 ranging)</li>
+                            <li>Send the stop sequence.</li>
+                        </ol>
+                        <img class="img-responsive" src="assets/images/checkers/i2c.png" alt="I2C"></img>
+
+                        <h3>SPI Interface Programming</h3>
+                        <p>In SPI, only one side generates the clock signal (usually called CLK or SCK for Serial ClocK). The side that generates the clock is called the “master”, and the other side is called the “slave”. There is always only one master (which is almost always the microcontroller), but there can be multiple slaves (more on this in a bit). When data is sent from the master to a slave, it’s sent on a data line called MOSI, for “Master Out / Slave In”.</p>
+                        <img class="img-responsive" src="assets/images/checkers/spi.png" alt="SPI"></img>
+
+                        <h3>Driver</h3>
+                        <p>The driver can take the reed switches states and puts the states in a 2D integer array. The driver takes in a 2D array of RGB values and displays those colors onto the physical board. The LED is implemented by SPI. First, i need to use file descriptor to open SPI device, then allocate enough memeory according to the number of LED. For lighting those up, i first should convert the int to unsigned byte and then send the bytes to the device. For multiplexier, i need to allocate memory address for all the eight MUXs, then set up each reading port by assign the address according to the base address.</p>
+
+                        <h3>Game</h3>
+                        <p>We used <a href="https://github.com/harrisonzhao/checkers-ai-cpp">Harrison Zhao's Checkers C++</a> code to get a list of possible moves the pieces can make. It also includes an AI component, allowing for human vs human, computer vs human, and computer vs computer. We took our driver class that keeps track of where the pieces are on the board, the checkerboard code that we created to light the board at certain times and combined everything together.</p>
+                        <p>The program keeps track of the pieces movement using two 2D arrays. During a player's turn, the program will first light up all the possible moves that the user can make. The program will take the current checker pieces into a 2D array and subtract it from the previous board's state. If the resulting 2D array has a 1, it means that the piece was picked up, if the array includes a -1, it means that the piece was placed down. If a player is holding the piece, the board will show a 1 but not a -1, and will display the possible moves that the player can make with that individual piece. Once a player puts the piece down, the program will determine if the move the player made is valid, if so then then the player's turn ends. If the move is invalid, the board will indicate what the player did wrong and will wait until the player makes a valid move to change it to the other player. </p>
+                        <p>There are colors that we have used to define certain moves/actions:</p>
+                        <ul>
+                            <li>Blue - the piece occupying the space can make a valid move.</li>
+                            <li>Green - highlights a square that a piece can move to</li>
+                            <li>Red - a piece is in an invalid state (either picked up a piece that isn't playable that turn, put down a piece in an invalid space, or the captured piece(s) need to be taken off the board)</li>
+                            <li>Yellow - indicates the path that a double jump/triple/quadruple jump takes</li>
+                            <li>White - at the start of the game, if the pieces aren't put down</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="video section">
+                <div class="section-inner">
+                    <h2 class="heading">Video Demo</h2>
+                    <div class="content">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/3Wm2tg46zpE" frameborder="0" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
             </section>
