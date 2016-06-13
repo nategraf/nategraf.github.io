@@ -1,590 +1,113 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)https://wiki-class.cse.tamu.edu/index.php/CheckersForOne -->
-<html lang="en" dir="ltr" class="client-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>Checkers for One</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive HTML5 Website Landing Page for Developers">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    
+    <!-- github calendar css -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.css"/>
+    
+    <!-- github acitivity css -->
+    <link rel="stylesheet" href="assets/plugins/github-activity/github-activity-0.1.4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+    
+    <!-- Jssor slider css -->
+    <link rel="stylesheet" href="assets/css/checkers_slider.css">
 
-<title>Checkers For One</title>
-<meta name="generator" content="MediaWiki 1.24.1">
-<link rel="alternate" type="application/x-wiki" title="Edit" href="#">
-<link rel="edit" title="Edit" href="#">
-<link rel="shortcut icon" href="#">
-<link rel="search" type="application/opensearchdescription+xml" href="#" title="wiki-class (en)">
-<link rel="EditURI" type="application/rsd+xml" href="#">
-<link rel="alternate" hreflang="x-default" href="#">
-<link rel="alternate" type="application/atom+xml" title="wiki-class Atom feed" href="#">
-<link rel="stylesheet" href="./assets/php/load.php">
-<style>
-.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
-/* cache key: wikidb_class:resourceloader:filter:minify-css:7:869aa9133c31e6040d4830b259da96a8 */
-.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
-/* cache key: wikidb_class:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
-.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(/resources/src/mediawiki.action/images/green-checkmark.png?2015-03-11T18:25:00Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
-/* cache key: wikidb_class:resourceloader:filter:minify-css:7:ae479beacc4c8f7ef8d53fdb7d55ff35 */</style><style>
-.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
-/* cache key: wikidb_class:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
-<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
-/* cache key: wikidb_class:resourceloader:filter:minify-css:7:6db0b6325acdfc1d0476a0621c710b8b */</style>
-<script src="./assets/php/load(1).php"></script><script src="./assets/php/load(2).php"></script>
-<script>if(window.mw){
-mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"CheckersForOne","wgTitle":"CheckersForOne","wgCurRevisionId":12596,"wgRevisionId":12596,"wgArticleId":2088,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":"Nategraf","wgUserGroups":["CSE_csce-462","*","user","autoconfirmed"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"CheckersForOne","wgUserId":447,"wgUserEditCount":24,"wgUserRegistration":1461123989000,"wgUserNewMsgRevisionId":null,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFCKEditorDir":"extensions/WYSIWYG/ckeditor/","wgFCKEditorExtDir":"extensions/WYSIWYG","wgFCKEditorToolbarSet":"Wiki","wgFCKEditorHeight":"0","wgCKeditorMagicWords":{"wikitags":["nowiki","includeonly","onlyinclude","noinclude","comments","poll","pre","gallery","html","source","syntaxhighlight"],"imagewikitags":["references","ref","syntaxhighlight","html","nowiki","math","gallery","includeonly","noinclude","onlyinclude"],"magicwords":["NOTOC","FORCETOC","TOC","NOEDITSECTION","NEWSECTIONLINK","NONEWSECTIONLINK","NOGALLERY","HIDDENCAT","NOCONTENTCONVERT","NOCC","NOTITLECONVERT","NOTC","START","END","INDEX","NOINDEX","STATICREDIRECT","DISAMBIG"],"datevars":["CURRENTYEAR","CURRENTMONTH","CURRENTMONTHNAME","CURRENTMONTHNAMEGEN","CURRENTMONTHABBREV","CURRENTDAY","CURRENTDAY2","CURRENTDOW","CURRENTDAYNAME","CURRENTTIME","CURRENTHOUR","CURRENTWEEK","CURRENTTIMESTAMP","LOCALYEAR","LOCALMONTH","LOCALMONTHNAME","LOCALMONTHNAMEGEN","LOCALMONTHABBREV","LOCALDAY","LOCALDAY2","LOCALDOW","LOCALDAYNAME","LOCALTIME","LOCALHOUR","LOCALWEEK","LOCALTIMESTAMP"],"wikivars":["SITENAME","SERVER","SERVERNAME","DIRMARK","DIRECTIONMARK","SCRIPTPATH","STYLEPATH","CURRENTVERSION","CONTENTLANGUAGE","CONTENTLANG","PAGEID","CASCADINGSOURCES","REVISIONID","REVISIONDAY","REVISIONDAY2","REVISIONMONTH","REVISIONMONTH1","REVISIONYEAR","REVISIONTIMESTAMP","REVISIONUSER","REVISIONSIZE","NUMBEROFPAGES","NUMBEROFARTICLES","NUMBEROFFILES","NUMBEROFEDITS","NUMBEROFVIEWS","NUMBEROFUSERS","NUMBEROFADMINS","NUMBEROFACTIVEUSERS","FULLPAGENAME","PAGENAME","BASEPAGENAME","SUBPAGENAME","SUBJECTPAGENAME","ARTICLEPAGENAME","TALKPAGENAME","ROOTPAGENAME","NAMESPACE","NAMESPACENUMBER","SUBJECTSPACE","ARTICLESPACE","TALKSPACE"],"parserhooks":["lc","lcfirst","uc","ucfirst","formatnum","#dateformat","padleft","padright","plural","grammar","#language","int","#tag","#ns","#nse","#urlencode","#lcfirst","#ucfirst","#lc","#uc","#localurl","#localurle","#fullurl","#fullurle","#canonicalurl","#canonicalurle","#formatnum","#grammar","#gender","#plural","#numberofpages","#numberofusers","#numberofactiveusers","#numberofarticles","#numberoffiles","#numberofadmins","#numberingroup","#numberofedits","#numberofviews","#padleft","#padright","#anchorencode","#defaultsort","#filepath","#pagesincategory","#pagesize","#protectionlevel","#namespacee","#namespacenumber","#talkspace","#talkspacee","#subjectspace","#subjectspacee","#pagename","#pagenamee","#fullpagename","#fullpagenamee","#rootpagename","#rootpagenamee","#basepagename","#basepagenamee","#subpagename","#subpagenamee","#talkpagename","#talkpagenamee","#subjectpagename","#subjectpagenamee","#pageid","#revisionid","#revisionday","#revisionday2","#revisionmonth","#revisionmonth1","#revisionyear","#revisiontimestamp","#revisionuser","#cascadingsources","#namespace","#int","#special","#speciale","#formatdate","#displaytitle"]},"wgCKeditorUseBuildin4Extensions":[]});
-}</script><script>if(window.mw){
-mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"nategraf","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":5,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback"
-:0,"wllimit":250,"useeditwarning":1,"prefershttps":1,"riched_use_toggle":1,"riched_start_disabled":0,"riched_use_popup":1,"riched_toggle_remember_state":1,"riched_link_paste_text":1,"language":"en","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"45165bb17fd8507fce1824e2c6580934+\\","patrolToken":"0394ad2e760b12b861b7ff021b9eb418+\\","watchToken":"3dcbb010222cda658e593bc0ee176bca+\\"});},{},{});
-/* cache key: wikidb_class:resourceloader:filter:minify-js:7:2876b6f2821faabca9c8d5bf71ffceca */
-}</script>
-<script>if(window.mw){
-mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
-}</script><script src="./assets/php/load(3).php"></script>
-<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
-<script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script></head>
-<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-CheckersForOne skin-vector action-view vector-animateLayout">
-		<div id="content" class="mw-body" role="main">
-			<a id="top"></a>
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head> 
 
-						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Checkers for One</span></h1>
-						<div id="bodyContent" class="mw-body-content">
-									<div id="siteSub">From wiki-class</div>
-								<div id="contentSub"></div>
-												<div id="jump-to-nav" class="mw-jump">
-					Jump to:					<a href="#">navigation</a>, 					<a href="#">search</a>
-				</div>
+<body>
+    <div class="container sections-wrapper">
+        <div class="primary col-md-12 col-sm-12 col-xs-12">
 
-<h2><span class="mw-headline" id="Objective">Objective</span><span class="mw-editsection"><span class="mw-editsection-bracket"></span></span></h2>
-<p>Our objective is to build a computer enhanced checkers board which provides useful user feedback (e.g. move validation, turn timing, winning/losing notification) to the user when two players are playing, and allows a single player to play against an AI.&nbsp;
-</p><p>Checkers players of all ages. This board will provide trainging feedback to teach new players the game, and it will provide a challenging AI for veteran players to hone their skills against.
-</p>
-<h2><span class="mw-headline" id="Innovation">Innovation</span><span class="mw-editsection"><span class="mw-editsection-bracket"></span></span></h2>
-<p>This product is an innovation on both a physical board and online checker because it is tactile and interactive like a physical board, and it allows the user to learn to play checkers better by playing an AI, like in online checkers.&nbsp;
-</p>
-<h2><span class="mw-headline" id="Project_Description">Project Description</span><span class="mw-editsection"><span class="mw-editsection-bracket"></span></span></h2>
-<p><span id="docs-internal-guid-2fb30d0b-3357-309f-8efd-1144a440f3aa"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Our goal is to create physical checkers board that provides three play modes for player. The game board will have led lights as a guide for the human user. When the human picks up one of their pieces, the possible squares they could move to will light up. This game can either be played by two players, or one player with the AI. When the AI has it's turn, it will light up the piece it wishes to move until the human player picks it up, and it will light up the square it wishes to move to until the player puts it there. The board will also be able to the current detect game state to recognise invalid moves and win conditions. The board will provide feedback to the user through the LED illuminated tiles. The board will provide two switches which can let users to chose which mode they want to play. Each switch will toggle whether that player is controled by the human or an AI.</span></span>
-</p><p><span id="docs-internal-guid-2fb30d0b-3357-309f-8efd-1144a440f3aa"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">We will detect the position of all of the pieces by embedding magnets in the bottom of the checker pieces and detecting the presence of a piece using a magnetic reed switch under each white square. These readinga will be fed into the multiplexers. There are total eight multiplexers connected to raspberry Pi, and each multiplexer will detect the piece positions on one row of the board. The system will know the game state by monitoring when a player picks up a piece and waiting for it to be placed on the board in a new position. If the picking up or placing of a piece ever violates the model of expected play, the board will light up in a way which indicated the error to the user and affords the opportunity to fix it.</span></span>
-</p><p><span id="docs-internal-guid-2fb30d0b-3357-309f-8efd-1144a440f3aa"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">There will be LED lights underneath each square of the board. The LED is controled by the SPI protocol, which will let the micro-computer light up each one with specific color. The LEDs will act as the display method for information and aesthetic elements. When the turn starts for a player all of the pieces which may be moved will be lit up by underneath LEDs. When the user picks up a piece, the possible moves will be lit. Once the user moves its piece, the AI will then calculate its move and will tell the user which piece the AI chose to move and where it wants it to be placed. &nbsp;</span></span>
-</p><p><span><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">The AI algorithm will determine the target position based on alpha beta pruning.</span></span>
-</p><p><span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 23.4667px; white-space: pre-wrap;">This box will contain all of the hardware components including the LEDs, sensors, Raspberry Pi computer, and power supply.</span><span><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">The board has multiple layers. The first layer of the board will be a frosted glass with the black squares tinted darker. The second layer of the board will be the LED lights. The third layer is the 64 reed switches connected to the multiplexers. The container for the system will be attached to the planks containing reed switches.</span></span>
-</p><p><span><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;"><a href="#" class="image" title="111.jpg"><img alt="111.jpg" src="./assets/images/checkers/300px-111.jpg" width="300" height="400" srcset="/images/thumb/1/11/111.jpg/450px-111.jpg 1.5x, /images/thumb/1/11/111.jpg/600px-111.jpg 2x"></a> <a href="#" class="image" title="222.jpg"><img alt="222.jpg" src="./assets/images/checkers/300px-222.jpg" width="300" height="400" srcset="/images/thumb/3/36/222.jpg/450px-222.jpg 1.5x, /images/thumb/3/36/222.jpg/600px-222.jpg 2x"></a><a href="#" class="image" title="333.jpg"><img alt="333.jpg" src="./assets/images/checkers/300px-333.jpg" width="300" height="400" srcset="/images/thumb/8/8e/333.jpg/450px-333.jpg 1.5x, /images/thumb/8/8e/333.jpg/600px-333.jpg 2x"></a></span></span><span><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;"><a href="#" class="image" title="555.jpg"><img alt="555.jpg" src="./assets/images/checkers/300px-555.jpg" width="300" height="400" srcset="/images/thumb/c/c7/555.jpg/450px-555.jpg 1.5x, /images/thumb/c/c7/555.jpg/600px-555.jpg 2x"></a> <a href="#" class="image" title="555.jpg"><img alt="555.jpg" src="./assets/images/checkers/300px-555.jpg" width="300" height="400" srcset="/images/thumb/c/c7/555.jpg/450px-555.jpg 1.5x, /images/thumb/c/c7/555.jpg/600px-555.jpg 2x"></a><a href="#" class="image" title="666.jpg"><img alt="666.jpg" src="./assets/images/checkers/400px-666.jpg" width="400" height="300" srcset="/images/thumb/a/a4/666.jpg/600px-666.jpg 1.5x, /images/thumb/a/a4/666.jpg/800px-666.jpg 2x"></a><a href="#" class="image" title="777.JPG"><img alt="777.JPG" src="./assets/images/checkers/400px-777.JPG" width="400" height="300" srcset="/images/thumb/d/de/777.JPG/600px-777.JPG 1.5x, /images/thumb/d/de/777.JPG/800px-777.JPG 2x"></a></span></span>
-</p>
-<h2><span class="mw-headline" id="Technical_Challenges">Technical Challenges</span><span class="mw-editsection"><span class="mw-editsection-bracket"></span></span></h2>
-<p>(1) Driver:&nbsp;
-</p>
-<ul><li><span id="docs-internal-guid-8caef082-78d4-336f-2ccf-54463eb40209"><span style="font-size: 14px; font-family: Arial; color: rgb(37, 37, 37); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">The challenges are implementing the I2C and SPI protocol for the communication between hardware and software. In this part, you should be careful about the allocating the memory address and the byte of data sending to the device. Also, for the LED light part I need to convert all the unsigned byte to integer for the software to control the LED. In addition, it is also difficult to manipulate the receiving and sending bytes from SPI protocol. For the multiplexer part, I need to allocate the address precisely and calculate the expanding port based on the base address. &nbsp;</span></span></li></ul>
-<p>(2) Hardware:
-</p>
-<ul><li>Designing the box to be manufacturable from cost effective materials proved to be challenging with the final solution being to make it out of 0.5" aspen plywood</li>
-<li>Multiple modifications needed to be made to the box by hand&nbsp;after it was manufactured. These modifications were to fit the HDMI cable and two switches. I had to use a drill and files to carefully make the holes look clean</li>
-<li>The magnetic reed switches are very fragile and we ended up braking multiple of them. We made sure to order extra and handle them carefully.</li>
-<li>We ended up buying the wrong kind of multiplexers at first, and had to order a new set</li></ul>
-<p>(3) Software:
-</p>
-<ul><li>Tried to indicate when players made illegal moves, but the program isn't able to catch every error that a user might throw at it.</li>
-<li>Because we used another's code as the backbones of the project, we had to make sure we knew how every one of their functions worked so that we could integrate our magnet sensing and led indicationg program.</li>
-<li>The detection of if a piece can jump one piece vs&nbsp;jump more than one piece challenging.</li></ul>
-<h2><span class="mw-headline" id="Build.2FSystem_Development.C2.A0">Build/System Development&nbsp;</span><span class="mw-editsection"><span class="mw-editsection-bracket"></span></span></h2>
-<h3><span class="mw-headline" id="Hardware"><b>Hardware</b></span><span class="mw-editsection"><span class="mw-editsection-bracket"></span></span></h3>
-<p><b><font size="3"><span style="line-height: 25.6px;">The box</span></font></b>
-</p><p>The box was all cut out of 0.5" Aspen plywood using the CNC Shopbot Mill in the Engineering Innovation Center. Nate create the CAD models for each part, which are displayed below
-</p><p><a href="#" class="image" title="Assembled Box Angled View.png"><img alt="Assembled Box Angled View.png" src="./assets/images/checkers/200px-Assembled_Box_Angled_View.png" width="200" height="152" srcset="/images/thumb/f/f4/Assembled_Box_Angled_View.png/300px-Assembled_Box_Angled_View.png 1.5x, /images/thumb/f/f4/Assembled_Box_Angled_View.png/400px-Assembled_Box_Angled_View.png 2x"></a><a href="#" class="image" title="Box Base.png"><img alt="Box Base.png" src="./assets/images/checkers/200px-Box_Base.png" width="200" height="117" srcset="/images/thumb/4/45/Box_Base.png/300px-Box_Base.png 1.5x, /images/thumb/4/45/Box_Base.png/400px-Box_Base.png 2x"></a><a href="#" class="image" title="LED Mounting Plate"><img alt="LED Mounting Plate" src="./assets/images/checkers/200px-LED_Mounting_Plate.png" width="200" height="127" srcset="/images/thumb/2/22/LED_Mounting_Plate.png/300px-LED_Mounting_Plate.png 1.5x, /images/thumb/2/22/LED_Mounting_Plate.png/400px-LED_Mounting_Plate.png 2x"></a><a href="#" class="image" title="Reed Switch Mounting Plate.png"><img alt="Reed Switch Mounting Plate.png" src="./assets/images/checkers/200px-Reed_Switch_Mounting_Plate.png" width="200" height="128" srcset="/images/thumb/c/c9/Reed_Switch_Mounting_Plate.png/300px-Reed_Switch_Mounting_Plate.png 1.5x, /images/thumb/c/c9/Reed_Switch_Mounting_Plate.png/400px-Reed_Switch_Mounting_Plate.png 2x"></a><a href="#" class="image" title="Back Side Wall"><img alt="Back Side Wall" src="./assets/images/checkers/200px-Back_SIde_Wall.png" width="200" height="156" srcset="/images/thumb/0/08/Back_SIde_Wall.png/300px-Back_SIde_Wall.png 1.5x, /images/thumb/0/08/Back_SIde_Wall.png/400px-Back_SIde_Wall.png 2x"></a><a href="#" class="image" title="Left Side Wall.png"><img alt="Left Side Wall.png" src="./assets/images/checkers/200px-Left_Side_Wall.png" width="200" height="168" srcset="/images/thumb/7/7b/Left_Side_Wall.png/300px-Left_Side_Wall.png 1.5x, /images/thumb/7/7b/Left_Side_Wall.png/400px-Left_Side_Wall.png 2x"></a><a href="#" class="image" title="Front Side Wall"><img alt="Front Side Wall" src="./assets/images/checkers/200px-Front_Side_Wall.png" width="200" height="169" srcset="/images/thumb/7/74/Front_Side_Wall.png/300px-Front_Side_Wall.png 1.5x, /images/thumb/7/74/Front_Side_Wall.png/400px-Front_Side_Wall.png 2x"></a><a href="#" class="image" title="Right Side Wall.png"><img alt="Right Side Wall.png" src="./assets/images/checkers/200px-Right_Side_Wall.png" width="200" height="177" srcset="/images/thumb/9/95/Right_Side_Wall.png/300px-Right_Side_Wall.png 1.5x, /images/thumb/9/95/Right_Side_Wall.png/400px-Right_Side_Wall.png 2x"></a>
-</p><p><b>LEDs</b>
-</p><p>Inner constant current drive mode:
-</p><p><a href="#" class="image" title="Inner.PNG"><img alt="Inner.PNG" src="./assets/images/checkers/600px-Inner.PNG" width="600" height="283" srcset="/images/thumb/8/84/Inner.PNG/900px-Inner.PNG 1.5x, /images/thumb/8/84/Inner.PNG/1200px-Inner.PNG 2x"></a>&nbsp;
-</p><p><br>
-</p><p><b>Multiplexers:</b>
-</p><p>We use 8 multiplexers as I/O expender to read the status of reading switch by communicating through I2C protocol. Each MUX has 8 I/O pins which is used to read data. There are 3 address pins A0,A1,A2, which allow use to use at most 8 devices connected to the micocomputer.SDA and SCL are two pins used for I2C protoicol communication for operating every multiplexers.
-</p><p><a href="#" class="image" title="Mux.PNG"><img alt="Mux.PNG" src="./assets/images/checkers/400px-Mux.PNG" width="400" height="331" srcset="/images/thumb/2/20/Mux.PNG/600px-Mux.PNG 1.5x, /images/thumb/2/20/Mux.PNG/800px-Mux.PNG 2x"></a>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<a href="#" class="image" title="MUX2.PNG"><img alt="MUX2.PNG" src="./assets/images/checkers/400px-MUX2.PNG" width="400" height="145" srcset="/images/thumb/9/9e/MUX2.PNG/600px-MUX2.PNG 1.5x, /images/thumb/9/9e/MUX2.PNG/800px-MUX2.PNG 2x"></a>
-</p><p><b>Assembled Schematic</b>
-</p><p><b><a href="#" class="image" title="CheckerBoard Schematic.png"><img alt="CheckerBoard Schematic.png" src="./assets/images/checkers/947px-CheckerBoard_Schematic.png" width="947" height="551" srcset="/images/thumb/6/62/CheckerBoard_Schematic.png/1421px-CheckerBoard_Schematic.png 1.5x, /images/6/62/CheckerBoard_Schematic.png 2x"></a></b>
-</p><p><br>
-</p>
-<h3><span class="mw-headline" id="Software"><b><span style="font-size:larger;">Software</span></b></span><span class="mw-editsection"><span class="mw-editsection-bracket"></span></span></h3>
-<p><b>I2C protocol programming:</b>
-</p><p>setting up:
-</p><p><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">1. Send a start sequence</span><br><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">2. Send the I2C address of the slave with the R/W bit low (even address)</span><br><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">3. Send the internal register number you want to write to</span><br><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">4. Send the data byte</span><br><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">5. [Optionally, send any further data bytes]</span><br><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">6. Send the stop sequence.</span>
-</p><p><font face="Arial, Helvetica, sans-serif"><span style="font-size: 12px; line-height: 18px;">reading from slave address:</span></font>
-</p><p><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">1. Send a start sequence</span><br><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">2. Send 0xE0 ( I2C address of the SRF08 with the R/W bit low (even address)</span><br><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">3. Send 0x00 (Internal address of the command register)</span><br><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">4. Send 0x51 (The command to start the SRF08 ranging)</span><br><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px;">5. Send the stop sequence.</span>
-</p><p><a href="#" class="image" title="I2C.PNG"><img alt="I2C.PNG" src="./assets/images/checkers/800px-I2C.PNG" width="800" height="270" srcset="/images/thumb/9/92/I2C.PNG/1200px-I2C.PNG 1.5x, /images/9/92/I2C.PNG 2x"></a>
-</p><p><b>SPI programming:</b>
-</p><p><span style="font-family: &#39;Helvetica Neue&#39;, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px;">In SPI, only one side generates the clock signal (usually called CLK or SCK for Serial ClocK). The side that generates the clock is called the “master”, and the other side is called the “slave”. There is always only one master (which is almost always the microcontroller), but there can be multiple slaves (more on this in a bit).&nbsp;When data is sent from the master to a slave, it’s sent on a data line called MOSI, for “Master Out / Slave In”.</span>
-</p><p><a href="#" class="image" title="SPI.PNG"><img alt="SPI.PNG" src="./assets/images/checkers/600px-SPI.PNG" width="600" height="222" srcset="/images/thumb/a/a9/SPI.PNG/900px-SPI.PNG 1.5x, /images/thumb/a/a9/SPI.PNG/1200px-SPI.PNG 2x"></a>
-</p><p><b>Driver</b>
-</p><p>The driver can take&nbsp;the reed switches states and puts the states in a 2D integer array. The driver takes in a 2D array of RGB values and displays those colors onto the physical board. The LED is implemented by SPI. First, i need to use file descriptor to open SPI device, then allocate enough memeory according to the number of LED. For lighting those up, i first should convert the int to unsigned byte and then send the bytes to the device. For multiplexier, i need to allocate memory address for all the eight MUXs, then set up each reading port by assign the address according to the base address.
-</p><p><b>Game</b>
-</p><p>We used <a rel="nofollow" class="external text" href="https://github.com/harrisonzhao/checkers-ai-cpp">Harrison Zhao</a>'s Checkers C++ code to get a list of possible moves the pieces can make. It also includes an AI component, allowing for human vs human, computer vs human, and computer vs computer.&nbsp;We took our driver class that keeps track of where the pieces are on the board,&nbsp;the checkerboard code that we created to light the board at certain times and combined everything together.&nbsp;
-</p><p>The program keeps track of the pieces movement using two 2D arrays.&nbsp;During a player's turn, the program will first&nbsp;light up all the possible moves that the user can make. The program&nbsp;will take the current checker pieces into a 2D&nbsp;array and subtract it from the previous board's state. If the resulting 2D array has a 1, it means that the piece was picked up, if the array includes a -1, it means that the piece was placed down. If a player is holding the piece, the board will show a 1 but not a -1, and will display the possible moves that the player can make with that individual piece. Once a player puts the piece down, the program will determine if the move the player made is valid, if so then then the player's turn ends. If the move is invalid, the board will indicate what the player did wrong and will wait until the player makes a valid move to change it to the other player.&nbsp;
-</p><p>There are colors that we have used to define certain moves/actions:
-</p>
-<ul><li>Blue - the piece occupying the space can make a valid move.</li>
-<li>Green&nbsp;- highlights a square that a piece can move to</li>
-<li>Red - a piece is in an invalid state (either picked up a piece that isn't playable that turn, put down a piece in an invalid space, or the captured piece(s) need to be taken off the board)</li>
-<li>Yellow - indicates the path that a double jump/triple/quadruple jump takes</li>
-<li>White - at the start of the game, if the pieces aren't put down</li></ul>
-<p><a rel="nofollow" class="external text" href="https://github.com/almeagher/CheckersForOne">Github</a>
-</p>
-<h2><span class="mw-headline" id="Video">Video</span><span class="mw-editsection"><span class="mw-editsection-bracket"></span></span></h2>
-<div><a rel="nofollow" class="external text" href="https://youtu.be/i9xfftpLQUk"><span style="color: rgb(127, 127, 127); font-family: helvetica, arial, sans-serif; font-size: 14px; line-height: 18px; white-space: pre-wrap;">Checkers AI (brown pieces) vs Human player (tan pieces) - original video sped up - 3 minutes</span></a><br></div><div><a rel="nofollow" class="external text" href="https://youtu.be/3Wm2tg46zpE"><span style="color: rgb(127, 127, 127); font-family: helvetica, arial, sans-serif; font-size: 14px; line-height: 18px; white-space: pre-wrap;">Checkers AI (brown pieces) vs Human player (tan pieces) - original 7 minute game</span></a><br></div>
-<h2><span class="mw-headline" id="Development_Costs">Development Costs</span><span class="mw-editsection"><span class="mw-editsection-bracket"></span></span></h2>
-<p>Development costs
-</p>
-<div dir="ltr" style="margin-left:0pt;">
-<table style="border:none;border-collapse:collapse">
+            <section class="objective section">
+                <div class="section-inner">
+                    <h2 class="heading">Objective</h2>
+                    <div class="content">
+                        <p>Our objective is to build a computer enhanced checkers board which provides useful user feedback (e.g. move validation, turn timing, winning/losing notification) to the user when two players are playing, and allows a single player to play against an AI. </p>
+                        <p>Checkers players of all ages. This board will provide trainging feedback to teach new players the game, and it will provide a challenging AI for veteran players to hone their skills against.</p>
+                    </div>
+                </div>
+            </section>
 
-<tbody><tr>
-<td>
-</td></tr></tbody></table>
-<table style="width: 1308px;" cellpadding="1" cellspacing="1" border="1" align="left">
+            <section class="description section">
+                <div class="section-inner">
+                    <h2 class="heading">Project Description</h2>
+                    <div class="content">
+                        <p>Our goal is to create physical checkers board that provides three play modes for player. The game board will have led lights as a guide for the human user. When the human picks up one of their pieces, the possible squares they could move to will light up. This game can either be played by two players, or one player with the AI. When the AI has it's turn, it will light up the piece it wishes to move until the human player picks it up, and it will light up the square it wishes to move to until the player puts it there. The board will also be able to the current detect game state to recognise invalid moves and win conditions. The board will provide feedback to the user through the LED illuminated tiles. The board will provide two switches which can let users to chose which mode they want to play. Each switch will toggle whether that player is controled by the human or an AI.</p>
+                        <p>We will detect the position of all of the pieces by embedding magnets in the bottom of the checker pieces and detecting the presence of a piece using a magnetic reed switch under each white square. These readinga will be fed into the multiplexers. There are total eight multiplexers connected to raspberry Pi, and each multiplexer will detect the piece positions on one row of the board. The system will know the game state by monitoring when a player picks up a piece and waiting for it to be placed on the board in a new position. If the picking up or placing of a piece ever violates the model of expected play, the board will light up in a way which indicated the error to the user and affords the opportunity to fix it.</p>
+                        <p>There will be LED lights underneath each square of the board. The LED is controled by the SPI protocol, which will let the micro-computer light up each one with specific color. The LEDs will act as the display method for information and aesthetic elements. When the turn starts for a player all of the pieces which may be moved will be lit up by underneath LEDs. When the user picks up a piece, the possible moves will be lit. Once the user moves its piece, the AI will then calculate its move and will tell the user which piece the AI chose to move and where it wants it to be placed.  </p>
+                        <p>The AI algorithm will determine the target position based on alpha beta pruning.</p>
+                        <p>This box will contain all of the hardware components including the LEDs, sensors, Raspberry Pi computer, and power supply.The board has multiple layers. The first layer of the board will be a frosted glass with the black squares tinted darker. The second layer of the board will be the LED lights. The third layer is the 64 reed switches connected to the multiplexers. The container for the system will be attached to the planks containing reed switches.</p>
 
-<tbody><tr>
-<th style="width: 300px;" scope="col"> Source
-</th>
-<th style="width: 300px;" scope="col"> Part #
-</th>
-<th style="width: 404px;" scope="col"> Part Name
-</th>
-<th style="width: 89px;" scope="col"> Cost
-</th>
-<th style="width: 89px;" scope="col"> Shipping
-</th>
-<th style="width: 218px;" scope="col"> Tax (For a single purchase with many items, total tax is listed under a single item)
-</th></tr>
-<tr>
-<td style="width: 300px;"> <span id="docs-internal-guid-48440e8e-695b-ab42-91bc-090b2ac533f8"><a rel="nofollow" class="external text" href="http://www.adafruit.com/products/306"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">www.adafruit.com/products/306</span></a><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">&nbsp;&nbsp;</span></span><br>
-</td>
-<td style="width: 300px;"> <span id="docs-internal-guid-48440e8e-695b-d355-a6d9-19b7de19a447"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">LPD8806</span></span><br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-695b-e923-387a-3daf21639c98"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Digital RGB LED Weatherproof strip 32 LED</span></span><br>
-</td>
-<td style="width: 89px;"> <span id="docs-internal-guid-48440e8e-6960-9603-4aa5-cef98c3aa45e"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$59.00 (2)</span></span><br>
-</td>
-<td style="width: 89px;"> $9.50
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 200px;"> <span id="docs-internal-guid-48440e8e-695d-ad7e-102d-67f19dc7f62d"><a rel="nofollow" class="external text" href="http://www.digikey.com/product-search/en?lang=en&amp;site=US&amp;WT.z_homepage_link=hp_go_button&amp;KeyWords=HE558-ND&amp;x=0&amp;y=0"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">http://www.digikey.com/product-search/en?lang=en&amp;site=US&amp;WT.z_homepage_link=hp_go_button&amp;KeyWords=HE558-ND&amp;x=0&amp;y=0</span></a></span><br>
-</td>
-<td style="width: 300px;"> <span id="docs-internal-guid-48440e8e-695e-c5a7-25fa-3854ff0bfda3"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">HE558-ND</span></span><br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-6960-78cd-8e0b-42321be97dde"><span style="font-size: 12px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">SW MAG REED SPST 17-23AT 200V</span></span><br>
-</td>
-<td style="width: 89px;">
-<p>$9.75 (5)
-</p><p>$107.73 (70)
-</p><p>$34.20&nbsp;(20)
-</p><p><span><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$159.21 (total)</span></span>
-</p>
-</td>
-<td style="width: 89px;">
-<p>$7.75 (70)
-</p><p>$7.05 (20)
-</p>
-</td>
-<td style="width: 218px;">
-<p>$9.53 (70)
-</p><p>$3.40 (20)
-</p>
-</td></tr>
-<tr>
-<td style="width: 300px;"> <span id="docs-internal-guid-48440e8e-695e-0195-37ee-262db682195d"><a rel="nofollow" class="external text" href="http://www.kjmagnetics.com/proddetail.asp?prod=D81"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">www.kjmagnetics.com/proddetail.asp?prod=D81</span></a></span><br>
-</td>
-<td style="width: 300px;"> <span id="docs-internal-guid-48440e8e-695e-d295-f87d-78dc7cf68c4f"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">D81</span></span><br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-6960-6add-c847-8dcb837aedf7"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">1/16” Disc Magnet</span></span><br>
-</td>
-<td style="width: 89px;">
-<p>$0.63
-</p><p>$15.50&nbsp;(25)
-</p><p><span id="docs-internal-guid-48440e8e-6961-aac7-7b71-178f05a81ac0"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$16.13 (total)</span></span>
-</p>
-</td>
-<td style="width: 89px;"> $7.00
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 300px;"> <span id="docs-internal-guid-48440e8e-695e-0eb1-67cd-575358d42522"><a rel="nofollow" class="external text" href="http://www.kjmagnetics.com/proddetail.asp?prod=D801"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">http://www.kjmagnetics.com/proddetail.asp?prod=D801</span></a></span><br>
-</td>
-<td style="width: 300px;"> <span id="docs-internal-guid-48440e8e-695e-de30-a0be-2b242a5fe900"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">D801</span></span><br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-6960-5bdd-e19a-5a3632273d7a"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">1/32” Disc Magnet</span></span><br>
-</td>
-<td style="width: 89px;"> <span id="docs-internal-guid-48440e8e-6961-e221-40f8-529dd5ffee11"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$0.45</span></span><br>
-</td>
-<td style="width: 89px;"> $12.20
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 623px;"> <span id="docs-internal-guid-48440e8e-695e-2b46-5d3d-751f0ab47d78"><a rel="nofollow" class="external text" href="http://www.kjmagnetics.com/proddetail.asp?prod=D8H1"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">http://www.kjmagnetics.com/proddetail.asp?prod=D8H1</span></a></span><br>
-</td>
-<td style="width: 231px;"> <span id="docs-internal-guid-48440e8e-695e-f91a-2e45-50a9fe4c3e7a"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">D8H1</span></span><br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-6960-414f-3d06-facd548f3087"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">1/10” Disc Magnet</span></span><br>
-</td>
-<td style="width: 89px;"> <span id="docs-internal-guid-48440e8e-6962-06a3-f3a5-04ceafc4a254"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$0.83</span></span><br>
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 623px;"> <span id="docs-internal-guid-48440e8e-695e-39ee-3487-4d6d28134b28"><a rel="nofollow" class="external text" href="http://www.kjmagnetics.com/proddetail.asp?prod=D82"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">http://www.kjmagnetics.com/proddetail.asp?prod=D82</span></a></span><br>
-</td>
-<td style="width: 231px;"> <span id="docs-internal-guid-48440e8e-695f-0464-6558-6029e4983901"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">D82</span></span><br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-6960-336b-3b37-3a983df52116"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">1/8" Disc Magnet</span></span><br>
-</td>
-<td style="width: 89px;"> <span id="docs-internal-guid-48440e8e-6963-6726-a15a-3f88f8027e63"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$0.99</span></span>
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 623px;"> <span id="docs-internal-guid-48440e8e-695e-48f7-f4ac-d4cffe0848c2"><a rel="nofollow" class="external text" href="http://www.kjmagnetics.com/proddetail.asp?prod=D83"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">http://www.kjmagnetics.com/proddetail.asp?prod=D83</span></a></span><br>
-</td>
-<td style="width: 231px;"> <span id="docs-internal-guid-48440e8e-695f-1557-7753-7b9831914b00"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">D83</span></span><br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-6960-256e-b2c6-4f643ad0ce64"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">3/16” Disc Magnet</span></span><br>
-</td>
-<td style="width: 89px;"> <span id="docs-internal-guid-48440e8e-6963-55c9-df43-e6cb42584ee8"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$1.33</span></span>
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 623px;"> <span id="docs-internal-guid-48440e8e-695e-57e0-6348-870fdacef518"><a rel="nofollow" class="external text" href="https://www.digikey.com/product-detail/en/texas-instruments/PCF8574N/296-13109-5-ND/484957"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">https://www.digikey.com/product-detail/en/texas-instruments/PCF8574N/296-13109-5-ND/484957</span></a></span><br>
-</td>
-<td style="width: 231px;"> <span id="docs-internal-guid-48440e8e-695f-23d1-8b94-f979500a705c"><span style="font-size: 12px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">296-13109-5-ND</span></span><br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-6960-1400-bb94-0706df4a6c7c"><span style="font-size: 12px; font-family: Arial; color: rgb(0, 0, 0); font-weight: 700; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Texas Instruments PCF8574N Multiplexer</span></span><br>
-</td>
-<td style="width: 89px;"> <span id="docs-internal-guid-48440e8e-6963-43e9-b260-491c7dc82cb8"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$13.75 (10)</span></span><br>
-</td>
-<td style="width: 89px;"> $7.05
-</td>
-<td style="width: 218px;"> $1.72
-</td></tr>
-<tr>
-<td style="width: 623px;"> <a rel="nofollow" class="external free" href="https://www.digikey.com/product-detail/en/nxp-semiconductors/PCF8574T-3,518/568-1077-1-ND/735791">https://www.digikey.com/product-detail/en/nxp-semiconductors/PCF8574T-3,518/568-1077-1-ND/735791</a><br>
-</td>
-<td style="width: 231px;"> <span style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: normal;">568-1077-1-ND</span><br>
-</td>
-<td style="width: 404px;"> <span style="color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; line-height: normal;">NXP-Semiconductors PCF8574T-3,518&nbsp;</span><br>
-</td>
-<td style="width: 89px;"> $10.94 (10)&nbsp;
-</td>
-<td style="width: 89px;"> $2.60
-</td>
-<td style="width: 218px;"> $1.92
-</td></tr>
-<tr>
-<td style="width: 623px;"> <span id="docs-internal-guid-48440e8e-695e-6667-41f4-4d398827b0e3"><a rel="nofollow" class="external text" href="https://www.adafruit.com/products/590"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">https://www.adafruit.com/products/590</span></a></span><br>
-</td>
-<td style="width: 231px;"> <span id="docs-internal-guid-48440e8e-695f-793a-1102-da72ffb88d81"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap;">7823739</span></span><br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-6960-0810-8bf4-e19b0f4582d5"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Protoperma Breadboard</span></span><br>
-</td>
-<td style="width: 89px;"> <span id="docs-internal-guid-48440e8e-6963-3495-02e8-66c411d68aab"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$19.95 (3)</span></span><br>
-</td>
-<td style="width: 89px;"> <br>
-</td>
-<td style="width: 218px;"> <br>
-</td></tr>
-<tr>
-<td style="width: 623px;"> <span id="docs-internal-guid-48440e8e-695e-77d5-e647-373cd7f68bb6"><a rel="nofollow" class="external text" href="https://www.adafruit.com/products/3055"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">https://www.adafruit.com/products/3055</span></a></span><br>
-</td>
-<td style="width: 231px;"> <span id="docs-internal-guid-48440e8e-695f-8501-2c57-891cf259c8c8"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Raspberry Pi 3</span></span><br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-695f-fca6-7a04-5362760cf277"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Raspberry Pi Model 3 B</span></span><br>
-</td>
-<td style="width: 89px;"> <span id="docs-internal-guid-48440e8e-6963-1d1d-7d65-a592ee62e05a"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$39.95</span></span><br>
-</td>
-<td style="width: 89px;"> $9.51
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 623px;"> <span id="docs-internal-guid-48440e8e-695e-83e8-85bb-80430e8f9204"><a rel="nofollow" class="external text" href="http://www.homedepot.com/p/OPTIX-11-in-x-14-in-x-093-in-Acrylic-Sheet-MC-27/202090111"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">http://www.homedepot.com/p/OPTIX-11-in-x-14-in-x-093-in-Acrylic-Sheet-MC-27/202090111</span></a></span><br>
-</td>
-<td style="width: 231px;"> <span id="docs-internal-guid-48440e8e-695f-9102-631f-9808e06c0e63"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">202090111</span></span><br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-695f-f0b1-f9f9-ba3ad232187c"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">18 in. x 24 in. x .093 in. Acrylic Sheet</span></span><br>
-</td>
-<td style="width: 89px;"> <span id="docs-internal-guid-48440e8e-6963-09de-8a50-bebc1e277d19"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$10.27</span></span><br>
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> $0.85
-</td></tr>
-<tr>
-<td style="width: 623px;"> <font color="#1155cc" face="Arial"><span style="font-size: 14.6667px; line-height: 23.4667px; white-space: pre-wrap;">Walmart</span></font>
-</td>
-<td style="width: 231px;"> <br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-695f-e1e8-cdfe-b954811dbb60"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Lens Tint Spray Paint</span></span><br>
-</td>
-<td style="width: 89px;"> <span id="docs-internal-guid-48440e8e-6962-f355-c1d5-e7090a73b92d"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$5.82</span></span><br>
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> $0.48
-</td></tr>
-<tr>
-<td style="width: 623px;"> Walmart
-</td>
-<td style="width: 231px;"> <br>
-</td>
-<td style="width: 404px;"> Frosted Glass Spray
-</td>
-<td style="width: 89px;"> $3.74
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> $1.32
-</td></tr>
-<tr>
-<td style="width: 623px;"> <span style="line-height: 20.8px;">Walmart</span><br>
-</td>
-<td style="width: 231px;"> <br>
-</td>
-<td style="width: 404px;"> Brush
-</td>
-<td style="width: 89px;"> $5.97
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 623px;"> <span style="line-height: 20.8px;">Walmart</span><br>
-</td>
-<td style="width: 231px;"> <br>
-</td>
-<td style="width: 404px;"> Masking Tape
-</td>
-<td style="width: 89px;"> $0.96
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 623px;"> <span style="line-height: 20.8px;">Walmart</span><br>
-</td>
-<td style="width: 231px;"> <br>
-</td>
-<td style="width: 404px;"> Wood Stain
-</td>
-<td style="width: 89px;"> $5.38
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 623px;"> <span id="docs-internal-guid-48440e8e-695e-a1ee-60f0-c8a6f8f5eaaf"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;"><a rel="nofollow" class="external text" href="http://www.walmart.com/ip/Drueke-Wooden-Checkers/32695146">E</a>bay</span></span><br>
-</td>
-<td style="width: 231px;"> <br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-695f-d503-b4d0-3a467a4a1fbe"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Drueke Wooden Checkers</span></span><br>
-</td>
-<td style="width: 89px;"> <span id="docs-internal-guid-48440e8e-6962-e599-15ae-26805b35fa13"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$6.50</span></span><br>
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 623px;"> <span id="docs-internal-guid-48440e8e-695e-ac66-2f1e-04d174363c0c"><a rel="nofollow" class="external text" href="https://www.adafruit.com/products/276"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(17, 85, 204); text-decoration: underline; vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">https://www.adafruit.com/products/276</span></a></span><br>
-</td>
-<td style="width: 231px;"> <span id="docs-internal-guid-48440e8e-695f-a23f-1c3c-b72a078f7eec"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">276</span></span><br>
-</td>
-<td style="width: 404px;"> <span id="docs-internal-guid-48440e8e-695f-b7f7-4e8b-69b202016473"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">5V 2A (2000mA) switching power supply - UL Listed</span></span><br>
-</td>
-<td style="width: 89px;"> <span id="docs-internal-guid-48440e8e-6962-ce86-6d06-715549bdac6a"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">$7.95</span></span><br>
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 623px;"> Lowe's Home Improvement
-</td>
-<td style="width: 231px;"> <br>
-</td>
-<td style="width: 404px;"> 0.5" Aspen 2'x8' Plywood
-</td>
-<td style="width: 89px;"> $17.85
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 623px;"> Radio Shack
-</td>
-<td style="width: 231px;"> <br>
-</td>
-<td style="width: 404px;"> 16 Wire Nuts
-</td>
-<td style="width: 89px;"> $2.49
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> $0.58
-</td></tr>
-<tr>
-<td style="width: 623px;"> Radio Shack
-</td>
-<td style="width: 231px;"> <br>
-</td>
-<td style="width: 404px;"> 0.25oz Solder
-</td>
-<td style="width: 89px;"> $4.49
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> -
-</td></tr>
-<tr>
-<td style="width: 623px;"> Home Depot
-</td>
-<td style="width: 231px;"> <br>
-</td>
-<td style="width: 404px;"> #4x1/2" Brass Wood Screws
-</td>
-<td style="width: 89px;"> $0.98
-</td>
-<td style="width: 89px;"> -
-</td>
-<td style="width: 218px;"> $0.08
-</td></tr>
-<tr>
-<td style="width: 623px;"> <br>
-</td>
-<td style="width: 231px;"> <br>
-</td>
-<td style="width: 404px;"> <br>
-</td>
-<td style="width: 89px;">
-<p>$470.84 (including tax and shipping)
-</p>
-</td>
-<td style="width: 89px;"> <br>
-</td>
-<td style="width: 218px;"> <br>
-</td></tr></tbody></table>
-<p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p><p><br>
-</p>
-<div dir="ltr" style="margin-left:0pt;"></div></div>
-<h2><span class="mw-headline" id="Development_schedule">Development schedule</span><span class="mw-editsection"><span class="mw-editsection-bracket"></span></span></h2>
-<p>Schedule
-</p>
-<table style="border:none;border-collapse:collapse">
 
-<tbody><tr>
-<td>
-</td></tr></tbody></table>
-<table style="width:600px;" cellpadding="1" cellspacing="1" border="1">
+                        <!-- BEGIN SLIDER -->
+                        <script type="text/javascript" src="assets/plugins/jquery-1.11.3.min.js"></script>
+                        <script type="text/javascript" src="assets/plugins/jssor.slider.mini.js"></script>
+                        <script type="text/javascript" src="assets/js/checkers_slider.js"></script>
 
-<tbody><tr>
-<td style="width: 53px;">
-<p>Week
-</p>
-</td>
-<td style="width: 534px;"> <br>
-</td></tr>
-<tr>
-<td style="width: 53px;"> Feb 29
-</td>
-<td style="width: 534px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Proposal finished. Parts ordered.</span><br>
-</td></tr>
-<tr>
-<td style="width: 53px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Mar 7</span><br>
-</td>
-<td style="width: 534px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">All designs done for hardware. Overall software designs done</span><br>
-</td></tr>
-<tr>
-<td style="width: 53px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Mar 14</span><br>
-</td>
-<td style="width: 534px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Spring Break</span><br>
-</td></tr>
-<tr>
-<td style="width: 53px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Mar 21</span><br>
-</td>
-<td style="width: 534px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Start hardware prototype. Start software implementation. APIs between drivers, controllers, and AI defined</span><br>
-</td></tr>
-<tr>
-<td style="width: 53px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Mar 28</span><br>
-</td>
-<td style="width: 534px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Work on hardware prototype. Work on software</span><br>
-</td></tr>
-<tr>
-<td style="width: 53px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Apr 4</span><br>
-</td>
-<td style="width: 534px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Finish working on hardware</span><br>
-</td></tr>
-<tr>
-<td style="width: 53px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Apr 11</span><br>
-</td>
-<td style="width: 534px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Combine software and hardware together. Test whole structure</span><br>
-</td></tr>
-<tr>
-<td style="width: 53px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Apr 18</span><br>
-</td>
-<td style="width: 534px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Final tests, fixing any bugs</span><br>
-</td></tr>
-<tr>
-<td style="width: 53px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Apr 24</span><br>
-</td>
-<td style="width: 534px;"> <span style="color: rgb(0, 0, 0); font-family: Arial; font-size: 14.6667px; line-height: 20.24px; white-space: pre-wrap;">Finish project done</span><br>
-</td></tr>
-<tr>
-<td style="width: 53px;"> <br>
-</td>
-<td style="width: 534px;">
-<p><span id="docs-internal-guid-9d29c410-757e-2918-524f-85cad994796c"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Roles:</span></span>
-</p><p><span id="docs-internal-guid-9d29c410-757e-2918-524f-85cad994796c"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">AI: Allison, help form team</span></span>
-</p><p><span id="docs-internal-guid-9d29c410-757e-2918-524f-85cad994796c"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Onboard software: Di, help from team</span></span>
-</p><p><span id="docs-internal-guid-9d29c410-757e-2918-524f-85cad994796c"><span style="font-size: 14.6667px; font-family: Arial; color: rgb(0, 0, 0); vertical-align: baseline; white-space: pre-wrap; background-color: transparent;">Physical hardware: Nate, help from team</span></span>
-</p>
-</td></tr></tbody></table>
-<br><div dir="ltr" style="margin-left:0pt;"></div>
+                        <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; width: 600px; height: 450px; left: 0px; overflow: hidden; visibility: hidden;">
+                            <!-- Loading Screen -->
+                            <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+                                <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+                                <div style="position:absolute;display:block;background:url('assets/images/checkers/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+                            </div>
+                            <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 450px; overflow: hidden;">
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="assets/images/checkers/slider/angled_complete.jpg" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="assets/images/checkers/slider/top_complete.jpg" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="assets/images/checkers/slider/led_plate.jpg" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="assets/images/checkers/slider/reed_plate.jpg" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="assets/images/checkers/slider/inside.jpg" />
+                                </div>
+                                <div data-p="112.50" style="display: none;">
+                                    <img data-u="image" src="assets/images/checkers/slider/rasb_pi.jpg" />
+                                </div>
+                            </div>
+                            <!-- Bullet Navigator -->
+                            <div data-u="navigator" class="jssorb01" style="bottom:16px;right:16px;">
+                                <div data-u="prototype" style="width:12px;height:12px;"></div>
+                            </div>
+                            <!-- Arrow Navigator -->
+                            <span data-u="arrowleft" class="jssora02l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
+                            <span data-u="arrowright" class="jssora02r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
+                        </div>
+                        <!-- END SLIDER -->
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
