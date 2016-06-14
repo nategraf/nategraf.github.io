@@ -39,10 +39,22 @@
 </head> 
 
 <body>
+    <!-- BOID JS BACKGROUND -->
+    <canvas id="boids" class="canvas-background" width="600" height="450"></canvas>
+
+    <div class="row">
+        <header class="header col-md-8 col-sm-8 col-xs-8 checkers-header-left">
+            <h1 class="heading pull-right checkers-header-left-text"> Checkers for</h1>
+        </header>
+        <header class="header col-md-4 col-sm-4 col-xs-4 checkers-header-right">
+            <h1 class="heading pull-left checkers-header-right-text"> &nbsp;One </h1>
+        </header>
+    </div><!--//row-->
+
     <div class="container sections-wrapper">
         <div class="primary col-md-12 col-sm-12 col-xs-12">
 
-            <section class="objective section">
+	    <section class="objective section">
                 <div class="section-inner">
                     <h2 class="heading">Objective</h2>
                     <div class="content">
@@ -216,5 +228,6 @@
 
         </div>
     </div>
+    <script type="text/javascript" src="assets/js/boid.js"></script>  
 </body>
 </html>

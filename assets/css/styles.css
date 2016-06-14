@@ -37,6 +37,27 @@
   left: 0; top: 0;
 }
 
+.slbgimg{
+  background: #300a24 url('../images/sl_dim.png') no-repeat right;
+}
+
+.checkers-header-left {
+  background: rgba(255, 255, 255, 0.95); 
+}
+
+.checkers-header-right {
+  background: rgba(32, 32, 32, 0.95); 
+}
+
+.checkers-header-left-text {
+  color: #222;
+}
+
+.checkers-header-right-text {
+  color: #fff;
+}
+
+
 /* ======= Base ======= */
 body {
   font-family: 'Lato', arial, sans-serif;
@@ -136,7 +157,6 @@ a.dotted-link:hover {
 /* ======= Header ======= */
 .header {
   padding: 30px 0;
-  background: #300a24 url('../images/sl_dim.png') no-repeat right;
   border-top: 10px solid #778492;
   box-shadow: 15px 15px 15px rgba(179, 179, 179, 0.25);
 }
