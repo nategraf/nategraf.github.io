@@ -1,6 +1,6 @@
 var Boid = function() {
     var vector = new THREE.Vector3(),
-    _acceleration, _width = 500, _height = 500, _depth = 200, _goal, _neighborhoodRadius = 100,
+    _acceleration, _width = 500, _top = 500, _bottom = -500, _depth = 200, _goal, _neighborhoodRadius = 100,
     _maxSpeed = 4, _maxSteerForce = 0.1, _avoidWalls = false;
     this.position = new THREE.Vector3();
     this.velocity = new THREE.Vector3();
@@ -11,9 +11,10 @@ var Boid = function() {
     this.setAvoidWalls = function ( value ) {
         _avoidWalls = value;
     };
-    this.setWorldSize = function ( width, height, depth ) {
+    this.setWorldSize = function ( width, top, bottom, depth ) {
         _width = width;
-        _height = height;
+        _top = top;
+        _bottom = bottom;
         _depth = depth;
     };
     this.run = function ( boids ) {
@@ -26,11 +27,11 @@ var Boid = function() {
             vector = this.avoid( vector );
             vector.multiplyScalar( 5 );
             _acceleration.add( vector );
-            vector.set( this.position.x, - _height, this.position.z );
+            vector.set( this.position.x, _bottom, this.position.z );
             vector = this.avoid( vector );
             vector.multiplyScalar( 5 );
             _acceleration.add( vector );
-            vector.set( this.position.x, _height, this.position.z );
+            vector.set( this.position.x, _top, this.position.z );
             vector = this.avoid( vector );
             vector.multiplyScalar( 5 );
             _acceleration.add( vector );
@@ -42,10 +43,10 @@ var Boid = function() {
             vector = this.avoid( vector );
             vector.multiplyScalar( 5 );
             _acceleration.add( vector );
-        }/* else {
-            this.checkBounds();
         }
-        */
+        
+        this.checkBounds();
+        
         if ( Math.random() > 0.5 ) {
             this.flock( boids );
         }
@@ -71,8 +72,8 @@ var Boid = function() {
     this.checkBounds = function () {
         if ( this.position.x >   _width ) this.position.x = - _width;
         if ( this.position.x < - _width ) this.position.x =   _width;
-        if ( this.position.y >   _height ) this.position.y = - _height;
-        if ( this.position.y < - _height ) this.position.y =  _height;
+        if ( this.position.y >   _top ) this.position.y = _bottom;
+        if ( this.position.y < _bottom ) this.position.y =  _top;
         if ( this.position.z >  _depth ) this.position.z = - _depth;
         if ( this.position.z < - _depth ) this.position.z =  _depth;
     };

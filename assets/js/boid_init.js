@@ -5,6 +5,10 @@ SCREEN_HEIGHT_HALF = SCREEN_HEIGHT / 2;
 var camera, scene, renderer,
 birds, bird;
 var boid, boids;
+var WORLD_WIDTH = 500;
+var WORLD_TOP = 500;
+var WORLD_BOTTOM = -500;
+var WORLD_DEPTH = 500;
 init();
 animate();
 function init() {
@@ -22,7 +26,7 @@ function init() {
         boid.velocity.y = Math.random() * 2 - 1;
         boid.velocity.z = Math.random() * 2 - 1;
         boid.setAvoidWalls( true );
-        boid.setWorldSize( 500, 500, 400 );
+        boid.setWorldSize( WORLD_WIDTH, WORLD_TOP, WORLD_BOTTOM, WORLD_DEPTH );
         bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshBasicMaterial( { color:Math.random() * 0xffffff, side: THREE.DoubleSide } ) );
         bird.phase = Math.floor( Math.random() * 62.83 );
         scene.add( bird );
@@ -36,6 +40,7 @@ function init() {
     renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
     document.addEventListener( 'mousemove', onDocumentMouseMove, false );
     window.addEventListener( 'resize', onWindowResize, false );
+    window.addEventListener( 'scroll', onWindowScroll, false );
 }
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -48,6 +53,15 @@ function onDocumentMouseMove( event ) {
         boid = boids[ i ];
         vector.z = boid.position.z;
         boid.repulse( vector );
+    }
+}
+function onWindowScroll() {
+    var yOffset = window.pageYOffset / 10.0;
+    camera.position.y = -yOffset;
+    console.log(yOffset);
+    camera.updateProjectionMatrix();
+    for (var i = 0; i < boids.length; i++) {
+        boids[i].setWorldSize(WORLD_WIDTH, WORLD_TOP-yOffset, WORLD_BOTTOM-yOffset, WORLD_DEPTH);
     }
 }
 //
