@@ -24,10 +24,15 @@ jQuery(document).ready(function($) {
         /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
         GitHubActivity.feed({ username: "nategraf", selector: "#gh-feed" });
 
-        $('iframe#soundcloud_iframe_A').attr('src', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/159500192&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false');
-        $('iframe#soundcloud_iframe_B').attr('src', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/10360987&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false');
-        $('iframe#soundcloud_iframe_C').attr('src', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/166946939&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false');
-        $('iframe#soundcloud_iframe_D').attr('src', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/97603531&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false');
+        $('iframe#soundcloud-iframe-A').attr('src', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/159500192&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false');
+        $('iframe#soundcloud-iframe-B').attr('src', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/10360987&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false');
+        $('iframe#soundcloud-iframe-C').attr('src', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/166946939&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false');
+        $('iframe#soundcloud-iframe-D').attr('src', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/97603531&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false');
+
+        /* Once the iframes load, remove the loading message */
+        $('iframe#soundcloud-iframe-D').on('load', function(){
+            $('p#sc-loading-msg').remove();
+        });
     });
     
     /* Bootstrap Tooltip for Skillset */
