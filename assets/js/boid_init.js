@@ -27,7 +27,7 @@ function init() {
         boid.velocity.z = Math.random() * 2 - 1;
         boid.setAvoidWalls( true );
         boid.setWorldSize( WORLD_WIDTH, WORLD_TOP, WORLD_BOTTOM, WORLD_DEPTH );
-        bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshBasicMaterial( { color:Math.random() * 0xffffff, side: THREE.DoubleSide } ) );
+        bird = birds[ i ] = new THREE.Mesh( new Bird(), new THREE.MeshBasicMaterial( { color:Math.random() * 0xDAE3E7, side: THREE.DoubleSide } ) );
         bird.phase = Math.floor( Math.random() * 62.83 );
         scene.add( bird );
     }
@@ -79,7 +79,7 @@ function render() {
         color.r = color.g = color.b = ( 500 - bird.position.z ) / 1000;
         bird.rotation.y = Math.atan2( - boid.velocity.z, boid.velocity.x );
         bird.rotation.z = Math.asin( boid.velocity.y / boid.velocity.length() );
-        bird.phase = ( bird.phase + ( Math.max( 0, bird.rotation.z ) + 0.1 )  ) % 62.83;
+        bird.phase = ( bird.phase + ( Math.max( 0, bird.rotation.z ) / 2.0 + 0.1 )  ) % 62.83; // Control the wing flap frequency
         bird.geometry.vertices[ 5 ].y = bird.geometry.vertices[ 4 ].y = Math.sin( bird.phase ) * 5;
     }
     renderer.render( scene, camera );
