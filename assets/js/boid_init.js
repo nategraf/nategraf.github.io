@@ -58,7 +58,6 @@ function onDocumentMouseMove( event ) {
 function onWindowScroll() {
     var yOffset = window.pageYOffset / 10.0;
     camera.position.y = -yOffset;
-    console.log(yOffset);
     camera.updateProjectionMatrix();
     for (var i = 0; i < boids.length; i++) {
         boids[i].setWorldSize(WORLD_WIDTH, WORLD_TOP-yOffset, WORLD_BOTTOM-yOffset, WORLD_DEPTH);
